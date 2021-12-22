@@ -20,7 +20,7 @@ if (!JSON.parse(localStorage.getItem("Admin"))) {
 	let adminQ = new User;
 	adminQ.name = "Admin";
 	adminQ.pass = "Admin1";
-	adminQ.telephone = "+7778334422"
+	adminQ.telephone = "+77777777"
 	localStorage.setItem("Admin", JSON.stringify(adminQ));
 }
 function checkAuthentication(){
@@ -32,8 +32,8 @@ function checkAuthentication(){
 	if (JSON.parse(localStorage.getItem("authentication"))) {
 	// Проверяет залогинен ли пользователь. Если да то добавляет кнопки для пользователя
 
-	document.getElementById("aututif").innerHTML = '<hr><input class="button btn btn-warning" type="submit" value="Кабинет пользователя" onclick='+"userPage()"+' />'
-	+' <input class="button btn btn-warning" type="submit" value="Выход" onclick='+"logOut()"+' />';
+	document.getElementById("aututif").innerHTML = '<hr><input class="btn" type="submit" value="" onclick='+"userPage()"+' />'
+	+' <input class="btn" type="submit" value="" onclick='+"logOut()"+' />';
 }
 
 if (!JSON.parse(localStorage.getItem("authenticationAdmin"))) {
@@ -43,9 +43,9 @@ if (!JSON.parse(localStorage.getItem("authenticationAdmin"))) {
 if (JSON.parse(localStorage.getItem("authenticationAdmin"))) {
 	// Проверяет залогинен ли админ. Если да то добавляет кнопки для админа
 	// Заменить на лог аут
-	document.getElementById("aututif").innerHTML = '<hr><input class="button btn btn-warning" type="submit" value="Кабинет пользователя" onclick='+"userPage()"+' />'
-	+' <input class="button btn btn-warning" type="submit" value="Кабинет Админa" onclick='+"adminPage()"+' />'
-	+' <input class="button btn btn-warning" type="submit" value="Выход" onclick='+"logOutAdmin()"+' />';
+	document.getElementById("aututif").innerHTML = '<hr><input class="btn" type="submit" value="" onclick='+"userPage()"+' />'
+	+' <input class="btn" type="submit" value="" onclick='+"adminPage()"+' />'
+	+' <input class="btn" type="submit" value="" onclick='+"logOutAdmin()"+' />';
 }
 }
 
@@ -101,7 +101,6 @@ function saveAccount() {
 			document.getElementById("passwordField").classList.remove('colorDefault');
 			document.getElementById("passwordField").classList.add('colorbtInput');
 			document.getElementById("passwordError").classList.add('colorbt');
-			//document.getElementById("regErr").innerHTML = "Имя пользователя должно быть больше 4 символов";
 			ccc = 0;
 		}
 
@@ -237,7 +236,6 @@ function checkOriginalityEmail(email){
 	// Проверяет оригинальный ли email ввел пользователь(например при регистрации)
 	console.log("checkOriginalityEmail");
 	for (var i = localStorage.length; i >= 0; i--) {
-		//console.log("ОПЕРАЦИЯ НОМЕР "+ i );
 		var user = JSON.parse(localStorage.getItem(i));
 		if (user) {
 			if (email==user.email) {
@@ -446,7 +444,7 @@ function tableCreateDel(arr){
 		tr.appendChild(td5);
 
 		let td6 = document.createElement('td');
-		td6.innerHTML = '<input type="button" value="Delete user" class="deleteRow btn btn-danger" onclick="removeAccount('+user.key+')" />';
+		td6.innerHTML = '<input type="button" value="Delete user" class="btn" onclick="removeAccount('+user.key+')" />';
 		tr.appendChild(td6);
 
 		table.appendChild(tr);
@@ -532,7 +530,7 @@ function checkLogPanel(){
 function checkLogIn(){
 	// Проверяет вошел ли пользователь в учетку
 	if (!JSON.parse(localStorage.getItem("authentication"))) {
-		alert("Вы не вошли не в одну существующую учетную запись\nПожалуйста авторизуйтесь для доступа на данную страницу");
+		alert("You are not signed in to more than one existing account\nPlease log in to access this page");
 		loginPage();
 	}
 }
@@ -585,7 +583,7 @@ function searchByEmail(emailSearch){
 		}
 	}
 	if(alertCounter==0){
-		document.getElementById("searchErr").innerHTML = "Не найдено";
+		document.getElementById("searchErr").innerHTML = "Not found";
 	}
 }
 
@@ -598,14 +596,14 @@ function reStorage(){
 
 		user.name = document.getElementById('reNameField').value;
 		if (user.name<2) {
-			document.getElementById("searchErr").innerHTML = "Имя пользователя должно быть больше 2 символов";
+			document.getElementById("searchErr").innerHTML = "Username must be more than 2 characters";
 			return;
 		}
 
 		if (validateEmail(document.getElementById('reEmailField').value)) {
 			user.email = document.getElementById('reEmailField').value;
 		} else {
-			alert("Введенный e-mail не корректен");
+			alert("The entered e-mail is not correct");
 			return;
 		}
 
@@ -617,11 +615,11 @@ function reStorage(){
 			user.pass = document.getElementById('rePassField').value;
 		}
 		else{
-			alert("Разные пасы");
+			alert("Different passes");
 			return;
 		}
 		if (user.pass<4) {
-			document.getElementById("searchErr").innerHTML = "Имя пользователя должно быть больше 4 символов";
+			document.getElementById("searchErr").innerHTML = "Username must be more than 4 characters";
 			return;
 		}
 		user.key=document.getElementById('reKeyField').value;
@@ -630,7 +628,7 @@ function reStorage(){
 
 	}
 	else{
-		document.getElementById("searchErr").innerHTML = "Заполните все поля";
+		document.getElementById("searchErr").innerHTML = "Fill in all the fields";
 		return;
 	}
 	console.log(user);
