@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="C:\Users\Karina\Desktop\final_web\css\indexStyles.css">
+	<script src="https://kit.fontawesome.com/51c82fa37e.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=05d0a002-43fb-4639-9a78-485fa4491b41" type="text/javascript"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="C:\Users\Karina\Desktop\final_web\Resources\BLACKPINK-Logo-PNG.png" width="300px" class="image_logo"></a>
+		</div>
+		<div class="wrapper">
+			<nav class="main-nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#AboutUs">About</a></li>
+					<li><a href="shop.html">Shopping</a></li>
+					<li><a href="https://www.youtube.com/channel/UCOmHUn--16B90oW2L6FRR3A">Listen</a></li>
+                    <li><a href="signup.html">Sign up</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="user.html">User page</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+	<div class="Article">
+		<h2 class="text2">Welcome to BLACKPINK MERCH STORE!</h2>
+		<img src="C:\Users\Karina\Desktop\final_web\Resources\unnamed.jpg" class="unnamedImage">
+	</div>
+	<div id="AboutUs">
+		<h1 class="textAboutUs">About Us</h1>
+		<p class="textInfo">We are the first and only representatives of the BLACKPINK store in the CIS countries. The official merch from YG ENTERTAINMENT is only on our website. We have been firmly located in this market for <b>5 years</b>. More than <b>1.000.00</b> order of happy customers all over the world. Thank you for choosing us!</p> 
+	</div>
+    <section class="boxes">
+      <div class="box">
+        <h3>JENNIE</h3>
+        <img src="C:\Users\Karina\Desktop\final_web\Resources\scale_1200.jpg" width="300px" class="gridImages">
+      </div>
+      <div class="box">
+        <h3> JISOO</h3>
+       <img src="C:\Users\Karina\Desktop\final_web\Resources\06a37f3cb9288109bf9ca7087287c28d.jpg" width="300px" class="gridImages">
+      </div>
+      <div class="box">
+        <h3>ROSE</h3>
+        <img src="C:\Users\Karina\Desktop\final_web\Resources\EbfNrG-VAAAiUZB.jpg" width="300px" class="gridImages">
+      </div>
+      <div class="box">
+        <h3>LALISA</h3>
+        <img src="C:\Users\Karina\Desktop\final_web\Resources\blackpink_how_you_like_that_concept_UHD_Lisa.jpg" width="300px" class="gridImages">
+      </div>
+    </section>
+	<div class="InfoAboutBP">
+	<div class="textInfo">
+		<p>Blackpink (Korean: 블랙핑크; commonly stylized as BLACKPINK or BLΛƆKPIИK) is a South Korean girl group formed by YG Entertainment, consisting of members Jisoo, Jennie, Rosé, and Lisa. The group debuted in August 2016 with their single album Square One, which featured "Whistle" and "Boombayah", their first number-one entries on South Korea's Gaon Digital Chart and the Billboard World Digital Song Sales chart, respectively.</p>
+	</div>
+</div>
+	<div class="Article2">
+		<img src="C:\Users\Karina\Desktop\final_web\Resources\1624313875_21-phonoteka_org-p-oboi-blekpink-krasivo-21.jpg" alt="image__footer" class="image__footer">
+	</div>
+<footer>
+	<ul class="links">
+		<li><a href="https://www.yg-audition.com/">YG ENTERTAINMENT</a></li>
+        <li><a href="https://privacy.umusic.com/">Privacy Policy</a><li>
+        <li><a href="https://privacy.universalmusic.com/">Cookies</a><li>
+        <li><a href="https://privacy.umusic.com/terms/">Terms & Conditions</a><li>
+        </ul>
+        <div class="social__networks">
+        	<a href="https://www.instagram.com/blackpinkofficial"><i class="fab fa-instagram"></i></a>
+    		<a href="https://twitter.com/ygofficialblink"><i class="fab fa-twitter"></i></a>
+    		<a href="https://www.facebook.com/BLACKPINKOFFICIAL/"><i class="fab fa-facebook"></i></a>
+    		<a href="https://open.spotify.com/artist/41MozSoPIsD1dJM0CLPjZF"><i class="fab fa-spotify"></i></a>
+    		<a href="https://www.youtube.com/channel/UCOmHUn--16B90oW2L6FRR3A"><i class="fab fa-youtube"></i></a>
+    	</div>
+    	<div id="map">
+    	</div>
+	<script type="text/javascript">
+		var myVar;
+
+		function myFunction() {
+			myVar = setTimeout(showPage, 3000);
+		}
+
+		function showPage() {
+			document.getElementById("loader").style.display = "none";
+			document.getElementById("myDiv").style.display = "block";
+		}
+		ymaps.ready(function () {
+			var myMap = new ymaps.Map('map', {
+				center: [43.223444, 76.906473],
+				zoom: 15,
+				controls: ['smallMapDefaultSet']
+			}, {
+				searchControlProvider: 'yandex#search'
+			}),
+
+			MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+				'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+				),
+
+			myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+				hintContent: 'Hello',
+				balloonContent: 'Это красивая метка'
+			}, {
+				iconLayout: 'default#image',
+				iconImageHref: 'img/myIcon.png',
+				iconImageSize: [40, 45],
+				iconImageOffset: [10, -40]
+			});
+
+			myMap.geoObjects
+			.add(myPlacemark);
+		});
+		checkLogIn();
+	</script>
+    	<p class="copyright"> Copyright© 2021. All Rights Reserved</p>
+    </footer>       
+</body>
+</html>
