@@ -310,10 +310,7 @@ header{
     font-size: 20px;
 
 }
-.login:hover{
-    color: white;
-    background-color:purple;
-    text-decoration: inderline;}
+
 a{
     text-decoration: none;
 }
